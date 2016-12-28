@@ -1,4 +1,3 @@
-console.log("hi goobie");
 
 // Single state object
 var state = {
@@ -50,6 +49,7 @@ function deleteItem(text) {
 $("#js-shopping-list-form").submit(function (event) {
 	event.preventDefault();
 	var listItem = $("#shopping-list-entry").val();
+	$("#shopping-list-entry").val('');
 	console.log(listItem);
 	addItem(listItem);
 	renderItems(state.items);
@@ -84,20 +84,3 @@ $("#js-shopping-list-form").submit(function (event) {
 	var checkMe = $(event.currentTarget).parent().siblings(".shopping-item");
 	checkItem(checkMe);
   });
-
-// Render functions
-/*
-var renderList = function(state, element) {
-    var itemsHTML = state.items.map(function(item) {
-        return '<li>' + item + '</li>';
-    });
-    element.html(itemsHTML);
-};
-
-// Event listeners
-$('.shopping-list-add').submit(function(event) {
-    event.preventDefault();
-    addItem(state, $('.shopping-list-add-input').val());
-    renderList(state, $('.shopping-list'));
-});
-*/
